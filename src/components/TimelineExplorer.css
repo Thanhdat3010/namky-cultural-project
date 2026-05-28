@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   TIMELINE EXPLORER
+   TIMELINE EXPLORER — Cầu Tre Lịch Sử & Thư Giấy Dó
    ═══════════════════════════════════════════ */
 
 .timeline-explorer {
@@ -13,33 +13,50 @@
 }
 
 .timeline-explorer__title {
+  font-family: var(--font-serif);
   font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+}
+
+.timeline-explorer__title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-accent-vermillion);
 }
 
 .timeline-explorer__desc {
   font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 650px;
+  margin: var(--space-5) auto 0;
   line-height: var(--line-height-relaxed);
 }
 
-/* ── TIMELINE AXIS ────────────────────────── */
+/* ── TIMELINE AXIS (Cầu Tre Lịch Sử) ──────────────── */
 .timeline-axis {
   position: relative;
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-9);
   padding: var(--space-5) 0;
 }
 
+/* Wooden beam styling */
 .timeline-axis__track {
   position: relative;
-  height: 4px;
-  background: var(--color-border-subtle);
-  border-radius: var(--radius-full);
+  height: 8px;
+  background: #E0D3BC; /* Light natural wood/bamboo base */
+  border: 1px solid #D1C2A5;
+  border-radius: var(--radius-sm);
   margin: var(--space-9) 0 var(--space-3);
+  box-shadow: inset 0 1px 3px rgba(44, 36, 30, 0.1);
 }
 
 .timeline-axis__segments {
@@ -54,42 +71,43 @@
   cursor: pointer;
   position: relative;
   transition: all var(--motion-fast) var(--motion-ease);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
 }
 
 .timeline-axis__segment:hover {
-  filter: brightness(1.4);
-  transform: scaleY(2.5);
+  filter: brightness(1.15);
+  transform: scaleY(1.8);
 }
 
 .timeline-axis__segment--active {
-  filter: brightness(1.3);
-  transform: scaleY(2);
-  box-shadow: 0 0 15px currentColor;
+  filter: brightness(1.05);
+  transform: scaleY(1.8);
+  box-shadow: 0 0 10px currentColor;
 }
 
+/* Natural Organic Segment Gradients */
 .timeline-axis__segment:nth-child(1) {
-  background: linear-gradient(90deg, #2D6A4F, #40916C);
-  color: #40916C;
+  background: linear-gradient(90deg, #204B2F, var(--color-accent-jade));
+  color: var(--color-accent-jade);
 }
 .timeline-axis__segment:nth-child(2) {
-  background: linear-gradient(90deg, #6C5CE7, #a29bfe);
-  color: #a29bfe;
+  background: linear-gradient(90deg, #6C5264, var(--color-accent-purple));
+  color: var(--color-accent-purple);
 }
 .timeline-axis__segment:nth-child(3) {
-  background: linear-gradient(90deg, #C84B31, #E56B4F);
-  color: #E56B4F;
+  background: linear-gradient(90deg, #8A3020, var(--color-accent-vermillion));
+  color: var(--color-accent-vermillion);
 }
 .timeline-axis__segment:nth-child(4) {
-  background: linear-gradient(90deg, #D4A853, #E8C97A);
-  color: #E8C97A;
+  background: linear-gradient(90deg, #A87728, var(--color-accent-gold));
+  color: var(--color-accent-gold);
 }
 .timeline-axis__segment:nth-child(5) {
-  background: linear-gradient(90deg, #1B9AAA, #48C9B0);
-  color: #48C9B0;
+  background: linear-gradient(90deg, #1F636A, var(--color-accent-teal));
+  color: var(--color-accent-teal);
 }
 
-/* Era markers */
+/* Era markers - Lotus Dots */
 .timeline-axis__markers {
   display: flex;
   justify-content: space-between;
@@ -110,36 +128,40 @@
 }
 
 .timeline-axis__marker-dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--color-text-tertiary);
-  border: 2px solid var(--color-bg-primary);
+  background: #D5C8B2;
+  border: 3px solid var(--color-bg-primary);
   margin-bottom: var(--space-2);
   transition: all var(--motion-fast) var(--motion-ease);
+  box-shadow: var(--shadow-sm);
 }
 
+/* active dot glows like a blooming lotus */
 .timeline-axis__marker--active .timeline-axis__marker-dot {
-  background: var(--color-accent-gold);
-  box-shadow: 0 0 10px rgba(212, 168, 83, 0.5);
+  background: var(--color-accent-vermillion);
+  border-color: #FFFDF8;
+  box-shadow: 0 0 12px rgba(163, 62, 43, 0.4);
   transform: scale(1.3);
 }
 
 .timeline-axis__marker-year {
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
   white-space: nowrap;
 }
 
 .timeline-axis__marker--active .timeline-axis__marker-year {
-  color: var(--color-accent-gold);
+  color: var(--color-accent-vermillion);
 }
 
 /* Era labels */
 .timeline-axis__labels {
   display: flex;
   margin-top: var(--space-3);
+  gap: var(--space-2);
 }
 
 .timeline-axis__label {
@@ -149,59 +171,81 @@
   cursor: pointer;
   border-radius: var(--radius-sm);
   transition: all var(--motion-fast) var(--motion-ease);
+  background: rgba(229, 217, 195, 0.2);
+  border: 1px solid transparent;
 }
 
 .timeline-axis__label:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(229, 217, 195, 0.4);
+  border-color: #D5C8B2;
 }
 
 .timeline-axis__label--active {
-  background: rgba(255, 255, 255, 0.05);
+  background: #FFFDF8;
+  border-color: var(--color-accent-gold);
+  box-shadow: var(--shadow-sm);
 }
 
 .timeline-axis__label-name {
+  font-family: var(--font-serif);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-1);
 }
 
 .timeline-axis__label--active .timeline-axis__label-name {
-  color: var(--color-text-primary);
+  color: var(--color-accent-vermillion);
 }
 
 .timeline-axis__label-period {
   font-size: var(--font-size-xs);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 }
 
-/* ── ERA DETAIL PANEL ─────────────────────── */
+/* ── TIMELINE ERA PANEL (Bức Thư Giấy Dó Cổ) ──────── */
 .timeline-era-panel {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
-  margin-bottom: var(--space-7);
+  background: #FFFDF7;
+  border: 1px solid #E5D9C3;
+  border-left: 4px solid var(--color-accent-gold);
+  border-radius: var(--radius-sm);
+  padding: var(--space-6) var(--space-7);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+/* Paper seal top effect */
+.timeline-era-panel::before {
+  content: '📜';
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 1.5rem;
+  opacity: 0.2;
 }
 
 .timeline-era-panel__title {
+  font-family: var(--font-serif);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent-gold);
-  margin-bottom: var(--space-2);
+  color: var(--color-accent-vermillion);
+  margin-bottom: var(--space-1);
 }
 
 .timeline-era-panel__period {
   font-size: var(--font-size-md);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-4);
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted var(--color-border);
 }
 
 .timeline-era-panel__desc {
   font-size: var(--font-size-base);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-4);
 }
@@ -218,16 +262,21 @@
   gap: var(--space-2);
   font-size: var(--font-size-md);
   color: var(--color-text-secondary);
+  padding: var(--space-2) var(--space-4);
+  background: rgba(243, 235, 216, 0.4);
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(229, 217, 195, 0.4);
 }
 
 .timeline-era-panel__stat-value {
+  font-family: var(--font-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent-gold);
+  color: var(--color-accent-vermillion);
 }
 
 /* ── FILTER BAR ───────────────────────────── */
 .timeline-explorer__filters {
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
 }
 
 /* ── RESULTS INFO ─────────────────────────── */
@@ -235,51 +284,56 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
   flex-wrap: wrap;
   gap: var(--space-3);
 }
 
 .timeline-explorer__results-count {
   font-size: var(--font-size-md);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 }
 
 .timeline-explorer__results-count strong {
-  color: var(--color-accent-gold);
-  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-vermillion);
+  font-weight: var(--font-weight-bold);
 }
 
+/* Bamboo Capsule Contoured buttons */
 .timeline-explorer__modern-toggle {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-2) var(--space-4);
-  background: var(--glass-bg);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-surface-solid);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: all var(--motion-fast) var(--motion-ease);
+  box-shadow: var(--shadow-sm);
+  font-weight: var(--font-weight-semibold);
 }
 
 .timeline-explorer__modern-toggle:hover {
-  border-color: var(--color-border-hover);
+  border-color: var(--color-accent-gold);
+  color: var(--color-text-primary);
 }
 
 .timeline-explorer__modern-toggle--active {
   background: var(--color-accent-gold-dim);
   border-color: var(--color-accent-gold);
   color: var(--color-accent-gold);
+  box-shadow: inset 0 1px 3px rgba(195, 139, 53, 0.05);
 }
 
 /* ── WORD GRID ────────────────────────────── */
 .timeline-explorer__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
+  gap: var(--space-5);
 }
 
 @media (min-width: 640px) {
@@ -298,69 +352,80 @@
 .timeline-explorer__load-more {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-7);
+  margin-top: var(--space-8);
 }
 
 .timeline-explorer__load-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-4) var(--space-7);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-surface-solid);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: all var(--motion-fast) var(--motion-ease);
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .timeline-explorer__load-btn:hover {
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
+  border-color: var(--color-accent-vermillion);
+  color: var(--color-accent-vermillion);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-explorer__load-btn:active {
+  transform: translateY(0);
 }
 
 /* ── EMPTY STATE ──────────────────────────── */
 .timeline-explorer__empty {
   text-align: center;
   padding: var(--space-10) var(--space-5);
+  background: var(--color-surface-solid);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .timeline-explorer__empty-icon {
   font-size: 3rem;
   margin-bottom: var(--space-4);
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
 .timeline-explorer__empty-text {
+  font-family: var(--font-serif);
   font-size: var(--font-size-lg);
-  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-2);
 }
 
 .timeline-explorer__empty-hint {
   font-size: var(--font-size-md);
-  color: var(--color-text-tertiary);
-  opacity: 0.7;
+  color: var(--color-text-secondary);
 }
 
 /* Responsive timeline */
 @media (max-width: 640px) {
   .timeline-axis__labels {
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
 
   .timeline-axis__label {
     text-align: left;
     display: flex;
     align-items: center;
-    gap: var(--space-3);
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-4);
   }
 
   .timeline-axis__label-name {
@@ -373,6 +438,6 @@
 
   .timeline-era-panel__stats {
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
   }
 }

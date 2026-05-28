@@ -5,41 +5,42 @@
 
 /* ── DESIGN TOKENS ────────────────────────────────────── */
 :root {
-  /* Colors — Dark Mode (Đêm Sài Gòn) */
-  --color-bg-primary: #08080F;
-  --color-bg-secondary: #0E0E18;
-  --color-bg-tertiary: #141422;
-  --color-surface: rgba(26, 26, 46, 0.65);
-  --color-surface-solid: #1A1A2E;
-  --color-surface-hover: rgba(30, 30, 55, 0.8);
-  --color-surface-active: rgba(35, 35, 65, 0.9);
+  /* Colors — Traditional Warm Theme (Giấy Dó & Hồn Quê Nam Bộ) */
+  --color-bg-primary: #FAF6ED;
+  --color-bg-secondary: #F3EBD8;
+  --color-bg-tertiary: #EBE0C5;
+  --color-surface: rgba(255, 253, 249, 0.75);
+  --color-surface-solid: #FFFDF9;
+  --color-surface-hover: rgba(255, 255, 255, 0.95);
+  --color-surface-active: #F3EBD8;
 
   /* Accent Colors */
-  --color-accent-gold: #D4A853;
-  --color-accent-gold-light: #E8C97A;
-  --color-accent-gold-dim: rgba(212, 168, 83, 0.15);
-  --color-accent-vermillion: #C84B31;
-  --color-accent-vermillion-light: #E56B4F;
-  --color-accent-jade: #2D6A4F;
-  --color-accent-jade-light: #40916C;
-  --color-accent-teal: #1B9AAA;
-  --color-accent-purple: #6C5CE7;
+  --color-accent-gold: #C38B35;          /* Vàng lúa chín */
+  --color-accent-gold-light: #D4A352;
+  --color-accent-gold-dim: rgba(195, 139, 53, 0.1);
+  --color-accent-vermillion: #A33E2B;    /* Đỏ ngói đất nung */
+  --color-accent-vermillion-light: #C5533F;
+  --color-accent-jade: #2A5C3D;          /* Xanh dừa nước */
+  --color-accent-jade-light: #377E53;
+  --color-accent-teal: #2A7E85;
+  --color-accent-purple: #83677B;
 
   /* Text */
-  --color-text-primary: #FFFEF4;
-  --color-text-secondary: #A0A0B8;
-  --color-text-tertiary: #6B6B80;
-  --color-text-inverse: #ED1C24;
-  --color-text-accent: var(--color-accent-gold);
+  --color-text-primary: #2C241E;         /* Nâu than gỗ sậm */
+  --color-text-secondary: #5C5043;       /* Xám bùn cát sông */
+  --color-text-tertiary: #8E8271;        /* Xám cát bụi */
+  --color-text-inverse: #FAF6ED;         /* Giấy Dó sáng */
+  --color-text-accent: var(--color-accent-vermillion);
 
   /* Borders */
-  --color-border: rgba(212, 168, 83, 0.12);
-  --color-border-hover: rgba(212, 168, 83, 0.3);
-  --color-border-focus: rgba(212, 168, 83, 0.6);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border: #E5D9C3;               /* Viền tre gỗ nhạt */
+  --color-border-hover: #C38B35;
+  --color-border-focus: #A33E2B;
+  --color-border-subtle: rgba(44, 36, 30, 0.08);
 
-  /* Typography — Be Vietnam Pro */
+  /* Typography — Be Vietnam Pro + Classical Serif fallback for headings */
   --font-primary: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif: 'Georgia', 'Playfair Display', serif;
   --font-size-xs: 0.625rem;    /* 10px */
   --font-size-sm: 0.6875rem;   /* 11px */
   --font-size-md: 0.75rem;     /* 12px */
@@ -78,19 +79,19 @@
   --space-12: 6rem;     /* 96px */
 
   /* Radius */
-  --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 50px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 32px;
   --radius-full: 999px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow-gold: 0 0 20px rgba(212, 168, 83, 0.15);
-  --shadow-glow-vermillion: 0 0 20px rgba(200, 75, 49, 0.15);
+  /* Shadows — Warm and Natural */
+  --shadow-sm: 0 2px 6px rgba(44, 36, 30, 0.08);
+  --shadow-md: 0 6px 16px rgba(44, 36, 30, 0.12);
+  --shadow-lg: 0 12px 28px rgba(44, 36, 30, 0.15);
+  --shadow-glow-gold: 0 0 15px rgba(195, 139, 53, 0.2);
+  --shadow-glow-vermillion: 0 0 15px rgba(163, 62, 43, 0.2);
 
   /* Motion */
   --motion-instant: 150ms;
@@ -102,10 +103,10 @@
   --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
   --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Glass */
-  --glass-bg: rgba(26, 26, 46, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(20px);
+  /* Glass - Frosted Rice Paper style */
+  --glass-bg: rgba(255, 253, 249, 0.85);
+  --glass-border: rgba(229, 217, 195, 0.6);
+  --glass-blur: blur(12px);
 
   /* Layout */
   --max-width: 1200px;
@@ -135,31 +136,40 @@ body {
   line-height: var(--line-height-normal);
   color: var(--color-text-primary);
   background-color: var(--color-bg-primary);
+  
+  /* Traditional Giấy Dó / Paper grain background texture */
+  background-image: 
+    radial-gradient(rgba(44, 36, 30, 0.035) 1px, transparent 1px),
+    radial-gradient(rgba(44, 36, 30, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 6px 6px;
   overflow-x: hidden;
 }
 
 /* ── SCROLLBAR ────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--color-bg-secondary);
+  border-left: 1px solid var(--color-border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent-gold-dim);
+  background: #D5C8B2;
+  border: 2px solid var(--color-bg-secondary);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 168, 83, 0.3);
+  background: var(--color-accent-gold);
 }
 
 /* ── FOCUS ────────────────────────────────────────────── */
 :focus-visible {
-  outline: 2px solid var(--color-accent-gold);
+  outline: 2px solid var(--color-accent-vermillion);
   outline-offset: 2px;
   border-radius: var(--radius-xs);
 }
@@ -167,18 +177,18 @@ body {
 /* ── SELECTION ────────────────────────────────────────── */
 ::selection {
   background: var(--color-accent-gold-dim);
-  color: var(--color-accent-gold-light);
+  color: var(--color-accent-gold);
 }
 
 /* ── LINKS ────────────────────────────────────────────── */
 a {
-  color: var(--color-accent-gold);
+  color: var(--color-accent-vermillion);
   text-decoration: none;
   transition: color var(--motion-instant) var(--motion-ease);
 }
 
 a:hover {
-  color: var(--color-accent-gold-light);
+  color: var(--color-accent-vermillion-light);
 }
 
 /* ── UTILITIES ────────────────────────────────────────── */
@@ -200,13 +210,27 @@ a:hover {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
 }
 
 .section-title {
+  font-family: var(--font-serif);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-accent-vermillion);
 }
 
 .section-subtitle {

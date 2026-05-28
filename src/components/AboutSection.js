@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import lotusPond from '../assets/lotus_pond.png';
 import './AboutSection.css';
 
 const VALUES = [
@@ -46,7 +47,13 @@ const cardVariants = {
 
 export default function AboutSection({ stats }) {
   return (
-    <section className="about" id="about">
+    <section
+      className="about"
+      id="about"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(250, 246, 237, 0.95) 0%, rgba(250, 246, 237, 0.5) 60%, rgba(250, 246, 237, 0.95) 100%), url(${lotusPond})`
+      }}
+    >
       <div className="container">
         <motion.div
           className="about__header"

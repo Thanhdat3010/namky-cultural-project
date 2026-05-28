@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   DICTIONARY SEARCH
+   DICTIONARY SEARCH — Cuốn Sổ Tay Tra Cứu Phương Ngữ
    ═══════════════════════════════════════════ */
 
 .dictionary-search {
@@ -24,20 +24,34 @@
 }
 
 .dictionary-search__title {
+  font-family: var(--font-serif);
   font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+}
+
+.dictionary-search__title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-accent-vermillion);
 }
 
 .dictionary-search__desc {
   font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 550px;
+  margin: var(--space-5) auto 0;
 }
 
-/* Search bar */
+/* Search bar — Scroll panel styling */
 .dictionary-search__bar {
   position: relative;
   max-width: 600px;
@@ -54,24 +68,23 @@
   position: absolute;
   left: var(--space-5);
   font-size: var(--font-size-xl);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   pointer-events: none;
   z-index: 1;
 }
 
 .dictionary-search__input {
   width: 100%;
-  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-9);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-9);
+  background: var(--color-surface-solid);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-lg);
   color: var(--color-text-primary);
   transition: all var(--motion-fast) var(--motion-ease);
   outline: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .dictionary-search__input::placeholder {
@@ -79,40 +92,40 @@
 }
 
 .dictionary-search__input:focus {
-  border-color: var(--color-accent-gold);
-  box-shadow: var(--shadow-glow-gold);
+  border-color: var(--color-accent-vermillion);
+  box-shadow: var(--shadow-glow-vermillion);
 }
 
 .dictionary-search__clear {
   position: absolute;
   right: var(--space-4);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(44, 36, 30, 0.06);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-xs);
   width: 28px;
   height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
   font-size: var(--font-size-md);
   transition: all var(--motion-instant);
   z-index: 1;
 }
 
 .dictionary-search__clear:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: var(--color-text-primary);
+  background: rgba(163, 62, 43, 0.08);
+  color: var(--color-accent-vermillion);
 }
 
-/* Alphabet index */
+/* Alphabet Index — Calligraphy letters A-Z */
 .dictionary-search__alphabet {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-1);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
   padding: 0 var(--space-3);
 }
 
@@ -125,28 +138,29 @@
   background: none;
   border: 1px solid transparent;
   border-radius: var(--radius-xs);
-  font-family: var(--font-primary);
+  font-family: var(--font-serif);
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
   cursor: pointer;
   transition: all var(--motion-instant);
 }
 
 .dictionary-search__letter:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--color-text-primary);
+  background: rgba(229, 217, 195, 0.3);
+  color: var(--color-accent-vermillion);
   border-color: var(--color-border);
 }
 
 .dictionary-search__letter--active {
-  background: var(--color-accent-gold-dim);
-  color: var(--color-accent-gold);
-  border-color: var(--color-accent-gold);
+  background: rgba(163, 62, 43, 0.06);
+  color: var(--color-accent-vermillion);
+  border-color: var(--color-accent-vermillion);
+  box-shadow: var(--shadow-glow-vermillion);
 }
 
 .dictionary-search__letter--disabled {
-  opacity: 0.3;
+  opacity: 0.25;
   cursor: default;
   pointer-events: none;
 }
@@ -155,7 +169,7 @@
 .dictionary-search__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-4);
+  gap: var(--space-5);
 }
 
 @media (min-width: 640px) {
@@ -172,59 +186,71 @@
 
 .dictionary-search__results-info {
   text-align: center;
-  margin-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
   font-size: var(--font-size-md);
-  color: var(--color-text-tertiary);
+  color: var(--color-text-secondary);
 }
 
 .dictionary-search__results-info strong {
-  color: var(--color-accent-gold);
+  color: var(--color-accent-vermillion);
+  font-weight: var(--font-weight-bold);
 }
 
 /* Load more */
 .dictionary-search__load-more {
   display: flex;
   justify-content: center;
-  margin-top: var(--space-7);
+  margin-top: var(--space-8);
 }
 
 .dictionary-search__load-btn {
   display: inline-flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-4) var(--space-7);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-surface-solid);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
   cursor: pointer;
   transition: all var(--motion-fast) var(--motion-ease);
+  box-shadow: var(--shadow-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .dictionary-search__load-btn:hover {
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
+  border-color: var(--color-accent-vermillion);
+  color: var(--color-accent-vermillion);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.dictionary-search__load-btn:active {
+  transform: translateY(0);
 }
 
 /* Empty state */
 .dictionary-search__empty {
   text-align: center;
   padding: var(--space-10) var(--space-5);
+  background: var(--color-surface-solid);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
 }
 
 .dictionary-search__empty-icon {
   font-size: 3rem;
   margin-bottom: var(--space-4);
-  opacity: 0.4;
+  opacity: 0.25;
 }
 
 .dictionary-search__empty-text {
+  font-family: var(--font-serif);
   font-size: var(--font-size-lg);
-  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
 }

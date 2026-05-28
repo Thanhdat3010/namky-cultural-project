@@ -1,12 +1,12 @@
 /* ═══════════════════════════════════════════
-   CATEGORY FILTER
+   CATEGORY FILTER — Nhãn Tre Chỉ Danh
    ═══════════════════════════════════════════ */
 
 .category-filter {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) 0;
+  padding: var(--space-4) 0;
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -22,37 +22,37 @@
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-5);
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--color-surface-solid);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-family: var(--font-primary);
   font-size: var(--font-size-md);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
   cursor: pointer;
   transition: all var(--motion-fast) var(--motion-ease);
   white-space: nowrap;
   flex-shrink: 0;
   user-select: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .category-filter__chip:hover {
-  border-color: var(--color-border-hover);
+  border-color: var(--color-accent-gold);
   color: var(--color-text-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .category-filter__chip--active {
-  background: var(--color-accent-gold-dim);
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
-  box-shadow: var(--shadow-glow-gold);
+  background: rgba(163, 62, 43, 0.06);
+  border-color: var(--color-accent-vermillion);
+  color: var(--color-accent-vermillion);
+  box-shadow: var(--shadow-glow-vermillion);
 }
 
 .category-filter__chip--active:hover {
-  background: rgba(212, 168, 83, 0.2);
+  background: rgba(163, 62, 43, 0.12);
 }
 
 .category-filter__icon {
@@ -63,17 +63,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 20px;
+  min-width: 22px;
   height: 20px;
   padding: 0 var(--space-2);
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-full);
+  background: rgba(44, 36, 30, 0.05);
+  border-radius: var(--radius-xs);
   font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
 }
 
 .category-filter__chip--active .category-filter__count {
-  background: rgba(212, 168, 83, 0.2);
-  color: var(--color-accent-gold);
+  background: rgba(163, 62, 43, 0.12);
+  color: var(--color-accent-vermillion);
 }

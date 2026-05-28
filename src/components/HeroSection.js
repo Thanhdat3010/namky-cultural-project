@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import heroBg from '../assets/hero_bg.png';
 import './HeroSection.css';
 
 const FLOATING_WORDS = [
@@ -54,7 +55,12 @@ export default function HeroSection({ stats, onExplore }) {
   return (
     <section className="hero" id="hero">
       {/* Background */}
-      <div className="hero__bg" />
+      <div
+        className="hero__bg"
+        style={{
+          backgroundImage: `linear-gradient(to bottom, rgba(250, 246, 237, 0.4) 0%, rgba(250, 246, 237, 0.95) 100%), url(${heroBg})`
+        }}
+      />
       <div className="hero__grid" />
 
       {/* Floating word particles */}
