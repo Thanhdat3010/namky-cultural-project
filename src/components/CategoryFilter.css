@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════
+   CATEGORY FILTER
+   ═══════════════════════════════════════════ */
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.category-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.category-filter__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--motion-fast) var(--motion-ease);
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.category-filter__chip:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.category-filter__chip--active {
+  background: var(--color-accent-gold-dim);
+  border-color: var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  box-shadow: var(--shadow-glow-gold);
+}
+
+.category-filter__chip--active:hover {
+  background: rgba(212, 168, 83, 0.2);
+}
+
+.category-filter__icon {
+  font-size: var(--font-size-base);
+}
+
+.category-filter__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 var(--space-2);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-tertiary);
+}
+
+.category-filter__chip--active .category-filter__count {
+  background: rgba(212, 168, 83, 0.2);
+  color: var(--color-accent-gold);
+}
