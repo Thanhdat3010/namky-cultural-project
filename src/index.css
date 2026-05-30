@@ -1,255 +1,71 @@
 /* ═══════════════════════════════════════════════════════════
-   DESIGN SYSTEM — Phương Ngữ Nam Kỳ Xưa & Nay
-   Inspired by: phù sa Nam Bộ · đêm Sài Gòn · sông Cửu Long
+   BẬU — Global Tokens & Base Styles
    ═══════════════════════════════════════════════════════════ */
 
-/* ── DESIGN TOKENS ────────────────────────────────────── */
 :root {
-  /* Colors — Traditional Warm Theme (Giấy Dó & Hồn Quê Nam Bộ) */
-  --color-bg-primary: #FAF6ED;
-  --color-bg-secondary: #F3EBD8;
-  --color-bg-tertiary: #EBE0C5;
-  --color-surface: rgba(255, 253, 249, 0.75);
-  --color-surface-solid: #FFFDF9;
-  --color-surface-hover: rgba(255, 255, 255, 0.95);
-  --color-surface-active: #F3EBD8;
-
-  /* Accent Colors */
-  --color-accent-gold: #C38B35;          /* Vàng lúa chín */
-  --color-accent-gold-light: #D4A352;
-  --color-accent-gold-dim: rgba(195, 139, 53, 0.1);
-  --color-accent-vermillion: #A33E2B;    /* Đỏ ngói đất nung */
-  --color-accent-vermillion-light: #C5533F;
-  --color-accent-jade: #2A5C3D;          /* Xanh dừa nước */
-  --color-accent-jade-light: #377E53;
-  --color-accent-teal: #2A7E85;
-  --color-accent-purple: #83677B;
-
-  /* Text */
-  --color-text-primary: #2C241E;         /* Nâu than gỗ sậm */
-  --color-text-secondary: #5C5043;       /* Xám bùn cát sông */
-  --color-text-tertiary: #8E8271;        /* Xám cát bụi */
-  --color-text-inverse: #FAF6ED;         /* Giấy Dó sáng */
-  --color-text-accent: var(--color-accent-vermillion);
-
-  /* Borders */
-  --color-border: #E5D9C3;               /* Viền tre gỗ nhạt */
-  --color-border-hover: #C38B35;
-  --color-border-focus: #A33E2B;
-  --color-border-subtle: rgba(44, 36, 30, 0.08);
-
-  /* Typography — Be Vietnam Pro + Classical Serif fallback for headings */
-  --font-primary: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-serif: 'Georgia', 'Playfair Display', serif;
-  --font-size-xs: 0.625rem;    /* 10px */
-  --font-size-sm: 0.6875rem;   /* 11px */
-  --font-size-md: 0.75rem;     /* 12px */
-  --font-size-base: 0.9375rem; /* 15px */
-  --font-size-lg: 1rem;        /* 16px */
-  --font-size-xl: 1.125rem;    /* 18px */
-  --font-size-2xl: 1.25rem;    /* 20px */
-  --font-size-3xl: 1.5rem;     /* 24px */
-  --font-size-4xl: 1.875rem;   /* 30px */
-  --font-size-5xl: 2.25rem;    /* 36px */
-  --font-size-hero: 3rem;      /* 48px */
-
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.6;
-  --line-height-relaxed: 1.8;
-
-  /* Spacing */
-  --space-1: 0.125rem;  /* 2px */
-  --space-2: 0.25rem;   /* 4px */
-  --space-3: 0.5rem;    /* 8px */
-  --space-4: 0.75rem;   /* 12px */
-  --space-5: 1rem;      /* 16px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-7: 2rem;      /* 32px */
-  --space-8: 2.5rem;    /* 40px */
-  --space-9: 3rem;      /* 48px */
-  --space-10: 4rem;     /* 64px */
-  --space-11: 5rem;     /* 80px */
-  --space-12: 6rem;     /* 96px */
-
-  /* Radius */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 32px;
-  --radius-full: 999px;
-
-  /* Shadows — Warm and Natural */
-  --shadow-sm: 0 2px 6px rgba(44, 36, 30, 0.08);
-  --shadow-md: 0 6px 16px rgba(44, 36, 30, 0.12);
-  --shadow-lg: 0 12px 28px rgba(44, 36, 30, 0.15);
-  --shadow-glow-gold: 0 0 15px rgba(195, 139, 53, 0.2);
-  --shadow-glow-vermillion: 0 0 15px rgba(163, 62, 43, 0.2);
-
-  /* Motion */
-  --motion-instant: 150ms;
-  --motion-fast: 300ms;
-  --motion-smooth: 500ms;
-  --motion-dramatic: 800ms;
-  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --motion-ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --motion-ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --motion-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-  /* Glass - Frosted Rice Paper style */
-  --glass-bg: rgba(255, 253, 249, 0.85);
-  --glass-border: rgba(229, 217, 195, 0.6);
-  --glass-blur: blur(12px);
-
-  /* Layout */
-  --max-width: 1200px;
-  --header-height: 64px;
+  --red: #AE2E13;
+  --navy: #01204E;
+  --sand: #F6DCAC;
+  --cream: #FFF9EE;
+  --font-heading: 'Phudu', sans-serif;
+  --font-body: 'Krub', sans-serif;
+  --max-w: 1200px;
+  --nav-h: 64px;
 }
 
-/* ── RESET & BASE ─────────────────────────────────────── */
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
-  font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-top: var(--nav-h);
 }
 
 body {
-  font-family: var(--font-primary);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-primary);
-  
-  /* Traditional Giấy Dó / Paper grain background texture */
-  background-image: 
-    radial-gradient(rgba(44, 36, 30, 0.035) 1px, transparent 1px),
-    radial-gradient(rgba(44, 36, 30, 0.02) 1px, transparent 1px);
-  background-size: 24px 24px, 12px 12px;
-  background-position: 0 0, 6px 6px;
-  overflow-x: hidden;
+  font-family: var(--font-body);
+  background: var(--sand);
+  color: var(--navy);
+  line-height: 1.6;
 }
 
-/* ── SCROLLBAR ────────────────────────────────────────── */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-bg-secondary);
-  border-left: 1px solid var(--color-border);
+button {
+  font-family: inherit;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #D5C8B2;
-  border: 2px solid var(--color-bg-secondary);
-  border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-gold);
-}
-
-/* ── FOCUS ────────────────────────────────────────────── */
-:focus-visible {
-  outline: 2px solid var(--color-accent-vermillion);
-  outline-offset: 2px;
-  border-radius: var(--radius-xs);
-}
-
-/* ── SELECTION ────────────────────────────────────────── */
-::selection {
-  background: var(--color-accent-gold-dim);
-  color: var(--color-accent-gold);
-}
-
-/* ── LINKS ────────────────────────────────────────────── */
 a {
-  color: var(--color-accent-vermillion);
+  color: inherit;
   text-decoration: none;
-  transition: color var(--motion-instant) var(--motion-ease);
 }
 
-a:hover {
-  color: var(--color-accent-vermillion-light);
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
 }
 
-/* ── UTILITIES ────────────────────────────────────────── */
-.container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 var(--space-5);
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 var(--space-7);
-  }
-}
-
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-sm);
-}
-
-.section-title {
-  font-family: var(--font-serif);
-  font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-3);
-  position: relative;
-  display: inline-block;
-}
-
-.section-title::after {
-  content: '';
+.sr-only {
   position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background-color: var(--color-accent-vermillion);
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.section-subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
-}
-
-/* ── REDUCED MOTION ──────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  html {
-    scroll-behavior: auto;
+@media (max-width: 768px) {
+  :root {
+    --nav-h: 56px;
   }
 }
