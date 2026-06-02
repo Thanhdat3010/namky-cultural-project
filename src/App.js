@@ -520,6 +520,7 @@ function App() {
             <div className="col-12 col-lg-4">
               <p className="footer-label">Liên hệ với BẬU</p>
               <p className="footer-signature">Trần Duy Nhân — nhantd.rs@gmail.com</p>
+              <p className="footer-signature">Trương Thành Đạt — ttdat2540@clc.fitus.edu.vn</p>
             </div>
           </div>
         </div>
