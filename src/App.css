@@ -147,8 +147,13 @@
 }
 
 @keyframes story-slide {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .phuong-ngu-section {
@@ -236,10 +241,11 @@
 .bau-btn {
   background: #111111;
   color: #FFFFFF;
-  padding: 8px 28px;
+  padding: 12px 36px;
   border-radius: 8px;
   font-family: var(--font-heading);
   font-size: 14px;
+  margin: 8px 0;
 }
 
 .bau-btn:hover {

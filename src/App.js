@@ -106,6 +106,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -121,8 +122,30 @@ function App() {
     }
   };
 
-  const handleConvert = () => {
-    setOutputText(inputText.trim());
+  const handleConvert = async () => {
+    if (!inputText.trim() || loading) return;
+
+    setLoading(true);
+    setOutputText('');
+
+    try {
+      const response = await fetch('https://fivec-bau-rag-backend.hf.space/api/convert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: inputText.trim() }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Không thể kết nối đến máy chủ.');
+      }
+
+      const data = await response.json();
+      setOutputText(data.converted);
+    } catch (err) {
+      setOutputText('Có lỗi xảy ra, vui lòng thử lại.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -286,15 +309,21 @@ function App() {
                   onChange={(e) => setInputText(e.target.value)}
                 />
                 <div className="text-center mt-2">
-                  <button id="btn-convert" className="btn bau-btn" onClick={handleConvert}>
-                    Chuyển đổi
+                  <button
+                    id="btn-convert"
+                    className="btn bau-btn"
+                    onClick={handleConvert}
+                    disabled={loading || !inputText.trim()}
+                    style={{ opacity: loading || !inputText.trim() ? 0.6 : 1 }}
+                  >
+                    {loading ? 'Đang chuyển đổi...' : 'Chuyển đổi'}
                   </button>
                 </div>
                 <label htmlFor="output-text" className="form-label sr-only">Câu nói phương ngữ</label>
                 <textarea
                   id="output-text"
                   className="form-control bau-textarea bau-textarea--output"
-                  placeholder="Câu nói tiếng Phương ngữ sẽ hiện ra ở đây"
+                  placeholder={loading ? 'Đang chuyển đổi ngôn ngữ... (có thể mất 20-30 giây nếu server đang khởi động)' : 'Câu nói tiếng Phương ngữ sẽ hiện ra ở đây'}
                   value={outputText}
                   readOnly
                 />
