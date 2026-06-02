@@ -107,6 +107,7 @@ function App() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [loading, setLoading] = useState(false);
+  const [relevantWords, setRelevantWords] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -127,6 +128,7 @@ function App() {
 
     setLoading(true);
     setOutputText('');
+    setRelevantWords([]);
 
     try {
       const response = await fetch('https://fivec-bau-rag-backend.hf.space/api/convert', {
@@ -141,6 +143,7 @@ function App() {
 
       const data = await response.json();
       setOutputText(data.converted);
+      setRelevantWords(data.relevant_words || []);
     } catch (err) {
       setOutputText('Có lỗi xảy ra, vui lòng thử lại.');
     } finally {
@@ -327,6 +330,67 @@ function App() {
                   value={outputText}
                   readOnly
                 />
+
+                {relevantWords.length > 0 && (
+                  <div className="bau-vocab-section">
+                    <h3 className="bau-vocab-title">
+                      📖 Từ vựng Nam Bộ tham chiếu ({relevantWords.length})
+                    </h3>
+                    <div className="bau-vocab-grid">
+                      {relevantWords.map((wordObj, idx) => {
+                        let posList = [];
+                        let viDuList = [];
+
+                        try {
+                          posList = JSON.parse(wordObj.pos || '[]');
+                        } catch (e) {
+                          posList = Array.isArray(wordObj.pos) ? wordObj.pos : [];
+                        }
+
+                        try {
+                          viDuList = JSON.parse(wordObj.vi_du || '[]');
+                        } catch (e) {
+                          viDuList = Array.isArray(wordObj.vi_du) ? wordObj.vi_du : [];
+                        }
+
+                        return (
+                          <div key={idx} className="bau-vocab-card">
+                            <div className="bau-vocab-header">
+                              <span className="bau-vocab-word">{wordObj.tu}</span>
+                              <div className="bau-vocab-pos-container">
+                                {posList.map((pos, pIdx) => (
+                                  <span key={pIdx} className="bau-vocab-pos-badge">
+                                    {pos}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+
+                            {wordObj.tu_hien_nay && (
+                              <div className="bau-vocab-modern-eq">
+                                Nói cách khác: <strong>{wordObj.tu_hien_nay}</strong>
+                              </div>
+                            )}
+
+                            <p className="bau-vocab-meaning">{wordObj.nghia}</p>
+
+                            {viDuList.length > 0 && (
+                              <div className="bau-vocab-examples">
+                                <span className="bau-vocab-example-label">Ví dụ ngữ cảnh xưa:</span>
+                                {viDuList.map((vidu, vIdx) => (
+                                  <p key={vIdx} className="bau-vocab-example-item">
+                                    💡 <em>"{vidu}"</em>
+                                  </p>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
                 <p className="converter-note text-center">
                   Mỗi câu nói được chuyển đổi không chỉ là sự thay đổi về ngôn ngữ, mà còn là một
                   cách để lắng nghe lại âm thanh Sài Gòn xưa trong đời sống hôm nay.

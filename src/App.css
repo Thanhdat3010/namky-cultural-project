@@ -514,3 +514,120 @@
     height: 280px;
   }
 }
+
+/* ==========================================
+   VOCABULARY CARDS SECTION (RAG BACKEND V4)
+   ========================================== */
+.bau-vocab-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(1, 32, 78, 0.15);
+  text-align: left;
+}
+
+.bau-vocab-title {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bau-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.bau-vocab-card {
+  background: #FFFFFF;
+  border: 2px solid #111111;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 4px 0px 0px #111111;
+}
+
+.bau-vocab-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--red);
+  border-color: var(--red);
+}
+
+.bau-vocab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.bau-vocab-word {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.bau-vocab-pos-container {
+  display: flex;
+  gap: 6px;
+}
+
+.bau-vocab-pos-badge {
+  font-family: var(--font-body);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--sand);
+  color: var(--navy);
+  border: 1px solid rgba(1, 32, 78, 0.15);
+  font-weight: 600;
+}
+
+.bau-vocab-modern-eq {
+  font-size: 12px;
+  color: rgba(1, 32, 78, 0.7);
+  margin-bottom: 12px;
+  padding: 4px 8px;
+  background: #FFF9EE;
+  border-radius: 6px;
+  border: 1px solid rgba(1, 32, 78, 0.05);
+  width: fit-content;
+}
+
+.bau-vocab-meaning {
+  font-size: 12.5px;
+  color: #111111;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.bau-vocab-examples {
+  border-left: 2px solid var(--red);
+  padding-left: 10px;
+  margin-top: auto;
+}
+
+.bau-vocab-example-label {
+  display: block;
+  font-size: 10px;
+  color: rgba(1, 32, 78, 0.6);
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bau-vocab-example-item {
+  font-size: 12px;
+  color: #555555;
+  line-height: 1.4;
+  margin-top: 4px;
+  font-style: italic;
+}
