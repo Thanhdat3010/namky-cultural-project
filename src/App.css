@@ -631,3 +631,58 @@
   margin-top: 4px;
   font-style: italic;
 }
+
+/* ==========================================
+   SAMPLE SENTENCE CHIPS FOR TRANSLATOR
+   ========================================== */
+.bau-samples-container {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.bau-samples-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--navy);
+  opacity: 0.85;
+}
+
+.bau-samples-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.bau-sample-chip {
+  background: #FFFFFF;
+  color: var(--navy);
+  border: 2px solid #111111;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px 0px #111111;
+  transition: all 0.15s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
+}
+
+.bau-sample-chip:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px var(--red);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.bau-sample-chip:active {
+  transform: translate(1px, 1px);
+  box-shadow: 0px 0px 0px 0px #111111;
+}
+
+.bau-sample-chip:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}

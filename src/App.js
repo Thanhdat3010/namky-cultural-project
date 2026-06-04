@@ -102,6 +102,15 @@ function App() {
     return columns;
   }, [memoryWords]);
 
+  const sampleSentences = useMemo(
+    () => [
+      'Ảnh nói năng dài dòng rỗng tuếch, tôi cấm dứt khoát không cho chơi với kẻ không đáng tin cậy ấy nữa.',
+      'Nó đẹp ngoài sức tưởng tượng của con người',
+      'Dạo này tôi bệnh nằm bất tỉnh',
+    ],
+    []
+  );
+
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [inputText, setInputText] = useState('');
@@ -302,7 +311,24 @@ function App() {
             </div>
             <div className="row justify-content-center">
               <div className="col-12 col-lg-8">
-                <div className="converter-example">Ví dụ: Mình làm gì bây giờ?</div>
+                <div className="bau-samples-container">
+                  <span className="bau-samples-label">💡 Gợi ý câu mẫu (bấm để chọn nhanh):</span>
+                  <div className="bau-samples-list">
+                    {sampleSentences.map((sentence, idx) => (
+                      <button
+                        key={idx}
+                        className="bau-sample-chip"
+                        onClick={() => {
+                          setInputText(sentence);
+                          setOutputText('');
+                          setRelevantWords([]);
+                        }}
+                      >
+                        {sentence}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <label htmlFor="input-text" className="form-label sr-only">Câu nói hiện đại</label>
                 <textarea
                   id="input-text"
